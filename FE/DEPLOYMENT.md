@@ -1,6 +1,6 @@
 # Vercel deployment
 
-Production: https://phongkhamtamnhu.vercel.app
+Production: https://phongkhamtamnhu.com
 
 Project dashboard: https://vercel.com/dungtd2504s-projects/phongkhamtamnhu
 
@@ -14,10 +14,13 @@ Run from this directory in PowerShell:
 npm.cmd run typecheck
 npm.cmd run lint
 npm.cmd run build
-vercel.cmd deploy --prod --yes --scope dungtd2504s-projects
 ```
 
-The CLI uploads the current local files. Git-based automatic deployment is not connected.
+After validation, commit and push the changes to `main` in `dungtdhe173304/phong-kham-tam-nhu`. Git-based automatic deployment is connected.
+
+Vercel project settings must use Root Directory `FE`, Framework `Next.js`, Install Command `npm ci`, Build Command `npm run build`, and the default Output Directory. The repository root contains both `BE` and `FE` and must not be deployed as an unconfigured static site.
+
+On 2026-10-08, an empty Git deployment caused a platform-level 404. Production was restored to the verified frontend deployment `dpl_3CG349tdNkgq3F4nAWpkT86SPci4`, and the Git build settings above were applied. The root, contact and training pages returned HTTP 200 after recovery; the `www` redirect remained HTTP 308.
 
 `vercel.json` selects Next.js with `npm ci` and `npm run build`. `.vercelignore` excludes local builds, dependencies, test artifacts, scripts, and environment files.
 
